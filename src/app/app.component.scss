@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.wrapper {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+span {
+  text-align: center;
+}
+
+.text__color_light {
+  color: darkgray;
+}
+
+button {
+  border: none;
+  min-height: 32px;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+}
+
+.button_color_red {
+  background: #eb5757;
+}
+
+.button_color_blue {
+  background: cornflowerblue;
+}
+
+.button_color_yellow {
+  background: #f7b234;
+}
+
+.button_color_green {
+  background: #27ae60;
+}
