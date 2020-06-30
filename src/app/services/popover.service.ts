@@ -18,8 +18,8 @@ export class PopoverService {
   ) {
   }
 
-  open(origin: ElementRef, content: PopoverContent, position: PopoverPosition): PopoverRef {
-    const positionStrategy = this._getPositionStrategy(origin, position);
+  open(origin: ElementRef, content: PopoverContent, position: PopoverPosition, alternativePosition?: PopoverPosition): PopoverRef {
+    const positionStrategy = this._getPositionStrategy(origin, position, alternativePosition);
     const overlayRef = this.overlay.create({positionStrategy});
     const popoverRef = new PopoverRef(overlayRef, content);
     const injector = this._createInjector(popoverRef, this.injector);
@@ -35,9 +35,9 @@ export class PopoverService {
     return new PortalInjector(injector, tokens);
   }
 
-  private _getPositionStrategy(origin: ElementRef, position: PopoverPosition) {
+  private _getPositionStrategy(origin: ElementRef, position: PopoverPosition, alternativePosition?: PopoverPosition) {
     const mainPosition = Positions[position] as ConnectedPosition;
-    const fallbackPosition = this._invertPosition(position);
+    const fallbackPosition = alternativePosition ? Positions[alternativePosition] as ConnectedPosition : this._invertPosition(position);
 
     return this.overlay.position()
       .flexibleConnectedTo(origin)
