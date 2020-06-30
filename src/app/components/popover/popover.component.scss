@@ -5,4 +5,76 @@
   box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.13);
   max-width: 140px;
   background: white;
+  position: relative;
+}
+
+.popover::after {
+  position: absolute;
+  content: '';
+  border: 1px solid #c4c4c4;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+:host-context(.top) .popover::after {
+  left: 50%;
+  top: 100%;
+  transform: rotate(45deg) translate(-50%);
+  border-left: none;
+  border-top: none;
+}
+
+:host-context(.bottom) .popover::after {
+  left: 50%;
+  bottom: 100%;
+  transform: rotate(45deg) translateY(50%);
+  border-right: none;
+  border-bottom: none;
+}
+
+:host-context(.right) .popover::after {
+  top: 50%;
+  right: 100%;
+  transform: rotate(45deg) translateY(-50%);
+  border-top: none;
+  border-right: none;
+}
+
+:host-context(.left) .popover::after {
+  top: 50%;
+  left: 100%;
+  transform: rotate(45deg) translateX(-50%);
+  border-bottom: none;
+  border-left: none;
+}
+
+:host-context(.top-right) .popover::after {
+  top: 100%;
+  right: 8px;
+  transform: rotate(45deg) translate(-50%);
+  border-left: none;
+  border-top: none;
+}
+
+:host-context(.top-left) .popover::after {
+  top: 100%;
+  transform: rotate(45deg) translate(-50%);
+  border-left: none;
+  border-top: none;
+}
+
+:host-context(.bottom-right) .popover::after {
+  bottom: 100%;
+  right: 8px;
+  transform: rotate(45deg) translateY(50%);
+  border-right: none;
+  border-bottom: none;
+}
+
+:host-context(.bottom-left) .popover::after {
+  bottom: 100%;
+  transform: rotate(45deg) translateY(50%);
+  border-right: none;
+  border-bottom: none;
 }
